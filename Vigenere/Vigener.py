@@ -68,8 +68,8 @@ class Vizhener:
         decryption_data = ""
         i = 0
         while i < len(encryption_data):
-            index_of_key = self.find_char_in_row(self.__private_key[i],vigener_arr)
-            index_of_data = self.find_char_in_col(encryption_data[i],vigener_arr,index_of_key)
+            index_of_key = self.find_char_in_row(self.__private_key[i], vigener_arr)
+            index_of_data = self.find_char_in_col(encryption_data[i], vigener_arr, index_of_key)
             decryption_data += vigener_arr[index_of_data][0]
             i += 1
         return decryption_data
@@ -141,4 +141,3 @@ class Vizhener:
                 return i
             i += 1
         return -1
-
