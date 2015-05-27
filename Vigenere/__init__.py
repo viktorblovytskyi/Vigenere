@@ -6,6 +6,7 @@ class Vizhener:
             encryption_vizhener(data);
             decryption(data);
             key_maker();
+            print_vigener_array(vigener_array);
 
     """
     __private_alf = "abcdefghijklmnopqrstuvwxyz"
@@ -18,8 +19,8 @@ class Vizhener:
 
     def create_vizhner_array(self):
         """
-            This function creates Vizhener's array.
-            :return vizhener_arr: Array
+        This function creates Vizhener's array.
+        :return vizhener_arr: Array
         """
         vizhener_arr = []
         temp_vizhener_arr = []
@@ -37,7 +38,7 @@ class Vizhener:
             i += 1
         return vizhener_arr
 
-    def encryption_vizhener(self, data):
+    def encryption_vizhener(self):
         """
         This function encrypts data by Vizhener's method.
         :param data: - String
@@ -45,12 +46,10 @@ class Vizhener:
             encrypted_data - String
         """
         data_char = ''
-        if len(self.__private_key) < len(data):
-            print "key < data"
-        i = 0
-        while i < len(data):
-            i += 1
-
+        self.key_maker()
+        arr = self.create_vizhner_array()
+        print self.__private_key
+        self.print_vigener_array(arr)
         encryption_data = ""
         return encryption_data
 
@@ -81,8 +80,19 @@ class Vizhener:
                 if j == key_len:
                     j = 0
             i += 1
-            print new_key
         self.__private_key = new_key
+
+    def print_vigener_array(self, vigener_array):
+        """
+        This function displays Vigener's array;
+        :return:
+            void
+        """
+        i = 0
+        while i < len(vigener_array):
+            print vigener_array[i]
+            i += 1
+        return 0
 
 
 def main():
@@ -92,8 +102,9 @@ def main():
         void
     """
     vizhener = Vizhener("abcd", "helloworld")
-    arr = vizhener.create_vizhner_array()
-    vizhener.key_maker()
+    vizhener.encryption_vizhener()
+    #arr = vizhener.create_vizhner_array()
+    #vizhener.key_maker()
 
 if __name__ == '__main__':
     main()
